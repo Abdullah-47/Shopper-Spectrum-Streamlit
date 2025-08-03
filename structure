@@ -1,0 +1,10 @@
+project/
+├── online_retail.csv                    # Dataset
+├── customer_segmentation.ipynb          # Main analysis notebook
+├── app.py                              # Streamlit application
+├── requirements.txt                    # Python dependencies
+├── kmeans_model.pkl                    # Saved KMeans model
+├── scaler.pkl                          # Saved scaler
+├── recommendation_model.pkl            # Saved recommendation model
+├── cluster_names.pkl                   # Saved cluster names
+└── README.md                           # Project documentation
