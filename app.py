@@ -43,6 +43,25 @@ def load_data():
         st.error("Dataset not found. Please ensure 'online_retail.csv' is in the same directory.")
         return None
 
+from sklearn.neighbors import NearestNeighbors
+
+def get_product_recommendations(product_code, model_knn, product_customer_matrix, n_recommendations=5):
+    """Get product recommendations using KNN model"""
+    if product_code not in product_customer_matrix.index:
+        return []
+
+    product_vector = product_customer_matrix.loc[product_code].values.reshape(1, -1)
+    distances, indices = model_knn.kneighbors(product_vector, n_neighbors=n_recommendations + 1)
+    
+    recommendations = []
+    for i in range(1, len(distances[0])):  # skip the first item (it's the product itself)
+        recommended_code = product_customer_matrix.index[indices[0][i]]
+        similarity = 1 - distances[0][i]  # convert distance to similarity
+        recommendations.append((recommended_code, similarity))
+    
+    return recommendations
+
+
 # Main app
 def main():
     st.title("🛍️ Customer Segmentation & Product Recommendation System")
@@ -210,7 +229,6 @@ def show_product_recommendations(model_knn, product_customer_matrix, df):
     
     if st.button("Get Recommendations", type="primary"):
         # Get recommendations
-        from main import get_product_recommendations
         recommendations = get_product_recommendations(product_code, model_knn, product_customer_matrix)
         
         if recommendations:
