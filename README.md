@@ -105,9 +105,17 @@ The solution includes:
 ---
 
 ### Project Structure
-```
-project/ ├── online_retail.csv # Retail transaction dataset ├── customer_segmentation.ipynb # Data analysis and model building notebook ├── app.py # Streamlit web application ├── requirements.txt # Python dependencies ├── kmeans_model.pkl # Saved KMeans customer segmentation model ├── scaler.pkl # Saved scaler for feature standardization ├── recommendation_model.pkl # Saved KNN recommendation model & data ├── cluster_names.pkl # Dictionary for cluster label mappings └── README.md # Project documentation
-```
+
+project/
+├── online_retail.csv          # Retail transaction dataset
+├── customer_segmentation.ipynb # Data analysis and model building notebook
+├── app.py                     # Streamlit web application
+├── requirements.txt           # Python dependencies
+├── kmeans_model.pkl           # Saved KMeans customer segmentation model
+├── scaler.pkl                 # Saved scaler for feature standardization
+├── recommendation_model.pkl   # Saved KNN recommendation model & data
+├── cluster_names.pkl          # Dictionary for cluster label mappings
+└── README.md                  # Project documentation
 
 ---
 
